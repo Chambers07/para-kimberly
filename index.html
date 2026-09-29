@@ -15,7 +15,12 @@
     .scene{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;justify-content:center;align-items:flex-start}
     .landscape{position:absolute;inset:-2%;z-index:-3;width:104%;height:104%;object-fit:cover;object-position:50% 60%;transform:translate3d(var(--x,0px),var(--y,0px),0) scale(1.015);transition:transform 1.7s ease-out}
     .veil{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(18,68,116,.16),transparent 53%)}
-    .dedication{padding:max(38px,8svh) 24px 25px;text-align:center;width:100%;animation:arrive 1.7s ease-out both}
+    .dedication{position:relative;z-index:3;padding:max(38px,8svh) 24px 25px;text-align:center;width:100%;animation:arrive 1.7s ease-out both}
+    .garden{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+    .flower{position:absolute;bottom:-9svh;left:var(--left);height:var(--height);width:auto;max-width:none;transform-origin:50% 96%;animation:breeze var(--speed) ease-in-out var(--delay) infinite;filter:drop-shadow(2px 5px 5px #324b2226);will-change:transform}
+    @keyframes breeze{0%,100%{transform:rotate(-5deg) translateX(-3px)}50%{transform:rotate(6deg) translateX(5px)}}
+    .flower:nth-child(even){animation-direction:reverse}
+    @media(max-width:600px){.flower{height:calc(var(--height) * .72);bottom:-6svh}.flower:nth-child(3),.flower:nth-child(6){display:none}.flower:nth-child(1){left:-19%}.flower:nth-child(2){left:0%}.flower:nth-child(4){left:15%}.flower:nth-child(5){left:48%}.flower:nth-child(7){left:62%}.flower:nth-child(8){left:79%}}
     h1{margin:0;font-weight:400;text-shadow:0 2px 14px #205f9780;line-height:1.28}
     .wish{display:block;font:400 clamp(1.65rem,3.3vw,3rem)/1.3 Georgia,'Times New Roman',serif;letter-spacing:.015em}
     .name{display:block;font:italic 400 clamp(4rem,8.8vw,8rem)/1.12 Georgia,'Times New Roman',serif;margin-top:8px;letter-spacing:-.04em;color:#fff7cd;text-shadow:0 3px 18px #24557e60}
@@ -33,6 +38,16 @@
     <img class="landscape" src="girasoles.png" alt="Un sendero entre girasoles amarillos bajo un cielo azul y soleado." fetchpriority="high" width="1672" height="941">
     <div class="veil" aria-hidden="true"></div>
     <div class="light" aria-hidden="true"></div>
+    <div class="garden" aria-hidden="true">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:-7%;--height:66svh;--speed:5.2s;--delay:-1.2s">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:5%;--height:49svh;--speed:4.6s;--delay:-3s">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:16%;--height:39svh;--speed:6.1s;--delay:-.8s">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:27%;--height:30svh;--speed:5.6s;--delay:-2.5s">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:56%;--height:32svh;--speed:5.1s;--delay:-4.2s">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:65%;--height:41svh;--speed:6.4s;--delay:-1.9s">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:73%;--height:54svh;--speed:4.9s;--delay:-3.4s">
+      <img class="flower" src="girasol-animado.png" alt="" style="--left:85%;--height:68svh;--speed:5.8s;--delay:-.5s">
+    </div>
     <header class="dedication">
       <h1><span class="wish">Que tengas un bonito dia</span> <span class="name">Kimberly</span></h1>
       <div class="divider" aria-hidden="true"></div>
