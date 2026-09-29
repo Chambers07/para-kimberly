@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#75b8ef">
+  <meta name="description" content="Un campo de girasoles y un deseo especial para Kimberly.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Que tengas un bonito dia Kimberly</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2388c6ee'/%3E%3Ccircle cx='16' cy='16' r='11' fill='%23ffce39'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23674024'/%3E%3C/svg%3E">
+  <style>
+    *{box-sizing:border-box}
+    html{min-height:100%;background:#80bdf0}
+    body{margin:0;min-height:100vh;min-height:100svh;color:#fffdf2}
+    .scene{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;justify-content:center;align-items:flex-start}
+    .landscape{position:absolute;inset:-2%;z-index:-3;width:104%;height:104%;object-fit:cover;object-position:50% 60%;transform:translate3d(var(--x,0px),var(--y,0px),0) scale(1.015);transition:transform 1.7s ease-out}
+    .veil{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(18,68,116,.16),transparent 53%)}
+    .dedication{padding:max(38px,8svh) 24px 25px;text-align:center;width:100%;animation:arrive 1.7s ease-out both}
+    h1{margin:0;font-weight:400;text-shadow:0 2px 14px #205f9780;line-height:1.28}
+    .wish{display:block;font:400 clamp(1.65rem,3.3vw,3rem)/1.3 Georgia,'Times New Roman',serif;letter-spacing:.015em}
+    .name{display:block;font:italic 400 clamp(4rem,8.8vw,8rem)/1.12 Georgia,'Times New Roman',serif;margin-top:8px;letter-spacing:-.04em;color:#fff7cd;text-shadow:0 3px 18px #24557e60}
+    .divider{height:1px;width:72px;background:#fff6ccba;margin:23px auto 0}
+    .light{pointer-events:none;position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 95% 2%,#fff6c334 0,transparent 37%);animation:sunlight 7s ease-in-out infinite alternate}
+    @keyframes arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes sunlight{from{opacity:.55}to{opacity:1}}
+    @media(max-width:600px){.dedication{padding-top:max(50px,10svh)}.wish{max-width:300px;margin:auto;font-size:1.85rem}.name{font-size:4.6rem;margin-top:14px}.landscape{object-position:50% 62%}.veil{background:linear-gradient(180deg,#307db72e,transparent 58%)}}
+    @media(max-height:480px) and (orientation:landscape){.dedication{padding-top:20px}.wish{font-size:1.5rem}.name{font-size:3.7rem}.divider{margin-top:10px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.landscape{transform:none}}
+  </style>
+</head>
+<body>
+  <main class="scene">
+    <img class="landscape" src="girasoles.png" alt="Un sendero entre girasoles amarillos bajo un cielo azul y soleado." fetchpriority="high" width="1672" height="941">
+    <div class="veil" aria-hidden="true"></div>
+    <div class="light" aria-hidden="true"></div>
+    <header class="dedication">
+      <h1><span class="wish">Que tengas un bonito dia</span> <span class="name">Kimberly</span></h1>
+      <div class="divider" aria-hidden="true"></div>
+    </header>
+  </main>
+  <script>
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(pointer: fine)');
+    const scene = document.querySelector('.scene');
+    window.addEventListener('pointermove', (event) => {
+      if (motion.matches || !finePointer.matches) return;
+      scene.style.setProperty('--x', ((event.clientX / innerWidth - .5) * -10) + 'px');
+      scene.style.setProperty('--y', ((event.clientY / innerHeight - .5) * -6) + 'px');
+    }, {passive: true});
+    document.addEventListener('mouseleave', () => {
+      scene.style.setProperty('--x', '0px');
+      scene.style.setProperty('--y', '0px');
+    });
+  </script>
+</body>
+</html>
